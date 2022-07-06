@@ -15,6 +15,7 @@ html {
 }
 body {
     position: relative;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -43,7 +44,8 @@ header h1 {
     /* min-height: 100vh; */
     width: 100%;
 }
-.gameStarted {
+.gameStarted .playDiv {
+    height: auto;
     /* flex-direction: column; */
 }
 .tamagotchiDiv {
@@ -84,7 +86,7 @@ header h1 {
     width: 20%;
 }
 
-.playDiv button {
+button {
     font-family: 'Share Tech Mono', monospace;
     font-size: 1.5rem;
     border: none;
@@ -95,26 +97,47 @@ header h1 {
     margin-top: 10px;
     transition: background-color 0.3s ease-in-out;
 }
-.playDiv button:hover {
+button:hover {
     background-color: #576e56;
     color: white;
     cursor: pointer;
 }
-footer {
-    position: absolute;
-    display: flex; 
-    justify-content: center;
-    align-items: flex-end;
-    bottom: 0;
+.gameStarted .playDiv .all {
     width: 100%;
-    height: 10vh;
+    display: flex;
 }
-a.credit {
-    position: fixed; 
-    bottom: 10px;
-    left: 50px; 
+.gameStarted .playDiv .stats,
+.gameStarted .playDiv .interact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    padding: 10px;
+    
+}
+
+.gameStarted .playDiv .stat {
+    font-size: 1.5rem;
+    background-color:#ffffff;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+.gameStarted .playDiv .interaction {
+    width: 100%;
+}
+.gameStarted .playDiv .interaction:hover {
+    filter: drop-shadow(-2px 2px 2px #ffffff);
+}
+a {
     color: white; 
     text-decoration: none;
     font-size: smaller;
-    margin-bottom: 10px;
+}
+
+a.credit {
+    position: fixed; 
+    bottom: 10px;
+    left: 10px; 
 }
