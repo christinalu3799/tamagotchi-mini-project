@@ -12,7 +12,6 @@
 }
 
 body {
-    display: flex; 
     position: relative;
     flex-direction: column;
     justify-content: center;
@@ -36,37 +35,62 @@ header h1 {
     filter: drop-shadow(-2px 2px 2px #fff0c9);
 }
 .main {
-    display: flex; 
+    display: flex;
+
     justify-content: center;
     align-items: center;
     min-height: 85vh;
     width: 100%;
 }
-.tomagotchiDiv {
+.tamagotchiDiv {
+    /* background-color: burlywood; */
     display: flex; 
+    position: relative;
     justify-content: center;
     align-items: center;
     width: 20%;
+    height: 50vh;
 }
 
-
-.tomagotchiDiv img {
+.tamagotchiDiv .tamagotchi {
     object-fit: contain;
+    position: absolute;
     width: 70%;
     margin: 0 30px 30px 30px;
     filter: drop-shadow(-2px 2px 2px #ffffff);
 }
 
 .playDiv {
-    color: white;
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    color: rgb(0, 0, 0);
     font-size: 1.5rem;
     width: 50%; 
     height: 40vh;
-    background-color: rgb(0, 0, 0);
-    border: solid 2px white;
+    background-color: rgb(156, 176, 161);
+    border: solid 3px white;
     border-radius: 30px;
     padding: 1.5rem;
     margin: 2rem;
+}
+.playDiv .pet {
+    width: 20%;
+}
+
+.playDiv button {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1.5rem;
+    border: none;
+    padding: 10px;
+    background-color: #ffffff;
+    width: 25%;
+    border-radius: 5px;;
+    transition: background-color 0.3s ease-in-out;
+}
+.playDiv button:hover {
+    background-color: #ffffab;
+    cursor: pointer;
 }
 footer {
     position: absolute;
