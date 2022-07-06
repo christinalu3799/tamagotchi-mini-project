@@ -19,14 +19,17 @@ const aging = (myTamagotchi) => {
         } else {
             age.innerHTML = `Age: ${i} months`
         }
+        // Increment age 
         i++
+
+        // Update age property on myTamagotchi object
         myTamagotchi.age = i
-        console.log(myTamagotchi)
     }, 3000)
     
 }
 // Allow user to give their pet a name when they click button
 // Store in a variable called 'name'
+let myTamagotchi;
 const giveName = () => {
     let name = prompt('What would you like to name your new Tamagotchi?')
     console.log(name)
@@ -43,9 +46,8 @@ const giveName = () => {
     giveNameDiv.appendChild(greeting)
 
     // Instantiate a new Tamagotchi pet from the Tamagotchi class
-    let myTamagotchi = new Tamagotchi(name)
-    console.log(myTamagotchi)
-    
+    myTamagotchi = new Tamagotchi(name)
+ 
     // Start the aging
     aging(myTamagotchi);
 
@@ -53,54 +55,50 @@ const giveName = () => {
     gettingHungry(myTamagotchi);
     gettingSleepy(myTamagotchi);
     gettingBored(myTamagotchi);
-    // Return the Tamagotchi object
-    return myTamagotchi
 }
 
 // STATS - functions to increase hunger, sleepiness, and boredom metrics
 const gettingHungry = (myTamagotchi) => {
-    let hungerLevel = 1
+    let hunger = document.querySelector('.hunger')
     // Increase hunger every 10 seconds
     setInterval(function() {
-        let hunger = document.querySelector('.hunger')
-        hunger.innerHTML = `Hunger: ${hungerLevel}`
+        hunger.innerHTML = `Hunger: ${myTamagotchi.hunger}`
         // Update hunger property in Tamagotchi object
-        myTamagotchi.hunger = hungerLevel
-        hungerLevel++
-    }, 10000)
+        myTamagotchi.hunger++
+        
+    }, 3000)
 }
 
 const gettingSleepy =(myTamagotchi) => {
-    let sleepinessLevel = 1
+    let sleepiness = document.querySelector('.sleepiness')
     // Increase sleepiness every 6 seconds
     setInterval(function () {
-        let sleepiness = document.querySelector('.sleepiness')
-        sleepiness.innerHTML = `Sleepiness: ${sleepinessLevel}`
+        sleepiness.innerHTML = `Sleepiness: ${myTamagotchi.sleepiness}`
         // Update sleepiness property in Tamagotchi object
-        myTamagotchi.sleepiness = sleepinessLevel
-        sleepinessLevel++
+        myTamagotchi.sleepiness++
     }, 6000)
 }
 
 const gettingBored =(myTamagotchi) => {
-    let boredomLevel = 1
-    // Increase boredom every 2 seconds (gets bored fast )
+    let boredom = document.querySelector('.boredom')
+    // Increase boredom every 4 seconds 
     setInterval(function () {
-        let boredom = document.querySelector('.boredom')
-        boredom.innerHTML = `Boredom: ${boredomLevel}`
+        boredom.innerHTML = `Boredom: ${myTamagotchi.boredom}`
         // Update boredom property in Tamagotchi object
-        myTamagotchi.boredom = boredomLevel
-        boredomLevel++
-    }, 2000)
+        myTamagotchi.boredom++
+    }, 4000)
 }
-
 // INTERACTIONS 
-const feed = () => {
-    
-    console.log('feed!')
+const feed = (myTamagotchi) => {
+    // Decrement hunger by 1 everytime user feeds it
+    myTamagotchi.hunger--;
+    let hunger = document.querySelector('.hunger')
+    hunger.innerHTML = `Hunger: ${myTamagotchi.hunger}`
+    console.log(myTamagotchi.hunger, 'just fed')
 }
 const lights = () => {
-    console.log('lights!')
+    // Make background darker to simulate night time
+    // Turning off lights allows
 }
 const play = () => {
     console.log('play!')
@@ -109,6 +107,9 @@ const play = () => {
 // EVENT LISTENERS
 // Listen for button click for when user wants to name their pet
 document.querySelector('#name').addEventListener('click',giveName)
-document.querySelector('#feed').addEventListener('click',feed)
-document.querySelector('#lights').addEventListener('click',lights)
-document.querySelector('#play').addEventListener('click',play)
+document.querySelector('#feed').addEventListener('click',() => {
+    feed(myTamagotchi)})
+document.querySelector('#lights').addEventListener('click', () => {
+    lights(myTamagotchi)})
+document.querySelector('#play').addEventListener('click', () => {
+    play(myTamagotchi)})
