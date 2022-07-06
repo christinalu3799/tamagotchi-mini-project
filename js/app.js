@@ -91,14 +91,27 @@ const gettingBored =(myTamagotchi) => {
 // INTERACTIONS 
 const feed = (myTamagotchi) => {
     // Decrement hunger by 1 everytime user feeds it
-    myTamagotchi.hunger--;
+    if(myTamagotchi.hunger > 0) {
+        myTamagotchi.hunger--
+    }
     let hunger = document.querySelector('.hunger')
     hunger.innerHTML = `Hunger: ${myTamagotchi.hunger}`
     console.log(myTamagotchi.hunger, 'just fed')
 }
 const lights = () => {
     // Make background darker to simulate night time
-    // Turning off lights allows
+    // Turning off lights allows pet to reduce sleepiness score
+    let sleepiness = document.querySelector('.sleepiness')
+    if(myTamagotchi.sleepiness > 0) {
+        myTamagotchi.sleepiness--
+    }
+    sleepiness.innerHTML = `Sleepiness: ${myTamagotchi.sleepiness}`
+
+    // Darken background
+    let body = document.querySelector('body')
+    console.log(body)
+    body.classList.toggle('darken')
+    console.log('switch lights')
 }
 const play = () => {
     console.log('play!')

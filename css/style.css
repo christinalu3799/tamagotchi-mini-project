@@ -13,6 +13,10 @@
 html {
     cursor: url('../cursor.png'), auto;
 }
+
+body.darken {
+    backdrop-filter: brightness(40%);
+}
 body {
     position: relative;
     display: flex;
@@ -21,8 +25,10 @@ body {
     align-items: center;
     background-image: url("../background.gif");
     background-size: cover;
+    backdrop-filter: brightness(150%);
     font-family: 'Share Tech Mono', monospace;
 }
+
 header {
     display: flex;
     justify-content: center;
@@ -194,7 +200,7 @@ a {
 }
 
 a.credit {
-    position: fixed; 
+    position: absolute; 
     bottom: 10px;
     left: 10px; 
 }
