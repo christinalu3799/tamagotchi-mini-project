@@ -44,6 +44,24 @@ header h1 {
     /* min-height: 100vh; */
     width: 100%;
 }
+
+.main .playDiv img.petHome {
+    margin-top: 25px;
+    animation: MoveUpDown 1s linear infinite;
+}
+
+@keyframes MoveUpDown {
+    0% {
+      transform: translateY(0%);
+    }
+    50% {
+        transform: translateY(-8%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
+}
+
 .gameStarted .playDiv {
     height: auto;
     /* flex-direction: column; */
