@@ -7,6 +7,23 @@ class Tamagotchi {
         this.age = age;
     }
 }
+
+// Make function to allow pet to age 
+const aging = () => {
+    i = 1
+    // Make pet age 1 month every 3 seconds
+    setInterval(function() {
+        let age = document.querySelector('.age')
+        if(i===1) {
+            age.innerHTML = `Age: ${i} month`
+        } else {
+            age.innerHTML = `Age: ${i} months`
+        }
+        console.log(i++)
+    }, 3000)
+   
+    
+}
 // Allow user to give their pet a name when they click button
 // Store in a variable called 'name'
 const giveName = () => {
@@ -27,7 +44,14 @@ const giveName = () => {
     // Instantiate a new Tamagotchi pet from the Tamagotchi class
     let myTamagotchi = new Tamagotchi(name)
     console.log(myTamagotchi)
-    return name
+    
+    // Start the aging
+    aging();
+    // Return the Tamagotchi object
+    return myTamagotchi
 }
+
+// ---------------------------------------------------------------
+// EVENT LISTENERS
 // Listen for button click for when user wants to name their pet
-let name = document.querySelector('#name').addEventListener('click',giveName)
+document.querySelector('#name').addEventListener('click',giveName)

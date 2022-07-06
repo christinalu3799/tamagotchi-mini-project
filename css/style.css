@@ -50,9 +50,32 @@ header h1 {
     color: white; 
     font-size: 1.5rem;
 }
-
+.main .playDiv {
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    color: rgb(0, 0, 0);
+    font-size: 1.5rem;
+    width: 50%; 
+    height: 40vh;
+    background-color: rgb(156, 176, 161);
+    border: solid 3px white;
+    border-radius: 30px;
+    padding: 1.5rem;
+    margin: 2rem;
+    text-align: center;
+}
+.playDiv p {
+    font-size: 1.1rem;
+}
+.playDiv .pet {
+    margin-top: 10px;
+    width: 20%;
+}
 /* Pet animation on homepage */
-.main .playDiv img.petHome {
+.main .playDiv .petHome {
+    width: 25%;
     margin-top: 25px;
     animation: MoveUpDown 1s linear infinite;
 }
@@ -69,29 +92,28 @@ header h1 {
     }
 }
 
-
 .gameStarted .playDiv .instructions {
     font-size: 1.2rem;
     text-align: center;
     margin-bottom: 1.2rem;
 }
 /* Pet animation on game page */
-.main .playDiv img.pet {
+.main .playDiv .pet {
     margin-top: 25px;
     animation: back-and-forth 5s linear infinite;
 }
 @keyframes back-and-forth{
     0% {
-      transform: translateX(0%) rotateY(0deg);
+      transform: translateX(-150%) rotateY(0deg);
     }
     49% {
-      transform: translateX(400%) rotateY(0deg);
+      transform: translateX(150%) rotateY(0deg);
     }
     51% {
-      transform: translateX(400%) rotateY(180deg);
+      transform: translateX(150%) rotateY(180deg);
     }
     100% {
-      transform: translateX(0%) rotateY(180deg);
+      transform: translateX(-150%) rotateY(180deg);
     }
 }
 .gameStarted {
@@ -119,25 +141,6 @@ header h1 {
     filter: drop-shadow(-2px 2px 2px #ffffff);
 }
 
-.playDiv {
-    display: flex; 
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: flex-start;
-    color: rgb(0, 0, 0);
-    font-size: 1.5rem;
-    width: 50%; 
-    height: 40vh;
-    background-color: rgb(156, 176, 161);
-    border: solid 3px white;
-    border-radius: 30px;
-    padding: 1.5rem;
-    margin: 2rem;
-}
-.playDiv .pet {
-    margin-top: 10px;
-    width: 20%;
-}
 
 button {
     font-family: 'Share Tech Mono', monospace;
@@ -163,15 +166,15 @@ button:hover {
 .gameStarted .playDiv .interact {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     width: 50%;
     padding: 10px;
-    
+    text-align: left;
 }
-
-.gameStarted .playDiv .stat {
+.gameStarted .playDiv .stat p {
     font-size: 1.5rem;
-    background-color:#ffffff;
+}
+.gameStarted .playDiv .stat {
     width: 100%;
     padding: 10px;
     margin-top: 10px;
@@ -179,6 +182,7 @@ button:hover {
 }
 .gameStarted .playDiv .interaction {
     width: 100%;
+    border: solid 2px black;
 }
 .gameStarted .playDiv .interaction:hover {
     filter: drop-shadow(-2px 2px 2px #ffffff);
