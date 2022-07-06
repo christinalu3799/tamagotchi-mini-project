@@ -44,7 +44,14 @@ header h1 {
     /* min-height: 100vh; */
     width: 100%;
 }
+#giveNameDiv {
+    width: 100%;
+    text-align: center;
+    color: white; 
+    font-size: 1.5rem;
+}
 
+/* Pet animation on homepage */
 .main .playDiv img.petHome {
     margin-top: 25px;
     animation: MoveUpDown 1s linear infinite;
@@ -62,6 +69,28 @@ header h1 {
     }
 }
 
+/* Pet animation on game page */
+.main .playDiv img.pet {
+    margin-top: 25px;
+    animation: back-and-forth 5s linear infinite;
+}
+@keyframes back-and-forth{
+    0% {
+      transform: translateX(0%) rotateY(0deg);
+    }
+    49% {
+      transform: translateX(400%) rotateY(0deg);
+    }
+    51% {
+      transform: translateX(400%) rotateY(180deg);
+    }
+    100% {
+      transform: translateX(0%) rotateY(180deg);
+    }
+}
+.gameStarted {
+    margin: 0;
+}
 .gameStarted .playDiv {
     height: auto;
     /* flex-direction: column; */
@@ -88,7 +117,7 @@ header h1 {
     display: flex; 
     flex-direction: column;
     justify-content: space-evenly;
-    align-items: center;
+    align-items: flex-start;
     color: rgb(0, 0, 0);
     font-size: 1.5rem;
     width: 50%; 
