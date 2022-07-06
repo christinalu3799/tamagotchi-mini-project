@@ -51,7 +51,20 @@ const giveName = () => {
     return myTamagotchi
 }
 
+// INTERACTIONS 
+const feed = () => {
+    console.log('feed!')
+}
+const lights = () => {
+    console.log('lights!')
+}
+const play = () => {
+    console.log('play!')
+}
 // ---------------------------------------------------------------
 // EVENT LISTENERS
 // Listen for button click for when user wants to name their pet
 document.querySelector('#name').addEventListener('click',giveName)
+document.querySelector('#feed').addEventListener('click',feed)
+document.querySelector('#lights').addEventListener('click',lights)
+document.querySelector('#play').addEventListener('click',play)
