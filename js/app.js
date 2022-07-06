@@ -89,7 +89,7 @@ const gettingBored =(myTamagotchi) => {
     }, 4000)
 }
 // INTERACTIONS 
-const feed = (myTamagotchi) => {
+const feed = () => {
     // Decrement hunger by 1 everytime user feeds it
     if(myTamagotchi.hunger > 0) {
         myTamagotchi.hunger--
@@ -109,12 +109,14 @@ const lights = () => {
 
     // Darken background
     let body = document.querySelector('body')
-    console.log(body)
     body.classList.toggle('darken')
-    console.log('switch lights')
 }
 const play = () => {
-    console.log('play!')
+    let boredom = document.querySelector('.boredom')
+    if(myTamagotchi.boredom > 0) {
+        myTamagotchi.boredom--
+    }
+    boredom.innerHTML = `Boredom: ${myTamagotchi.boredom}`
 }
 // ---------------------------------------------------------------
 // EVENT LISTENERS
