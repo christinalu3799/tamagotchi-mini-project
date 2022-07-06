@@ -69,6 +69,12 @@ header h1 {
     }
 }
 
+
+.gameStarted .playDiv .instructions {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 1.2rem;
+}
 /* Pet animation on game page */
 .main .playDiv img.pet {
     margin-top: 25px;
