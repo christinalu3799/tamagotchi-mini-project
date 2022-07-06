@@ -8,9 +8,9 @@ class Tamagotchi {
     }
 }
 
-// Make function to allow pet to age 
-const aging = () => {
-    i = 1
+// Make function age pet
+const aging = (myTamagotchi) => {
+    let i = 1
     // Make pet age 1 month every 3 seconds
     setInterval(function() {
         let age = document.querySelector('.age')
@@ -19,9 +19,10 @@ const aging = () => {
         } else {
             age.innerHTML = `Age: ${i} months`
         }
-        console.log(i++)
+        i++
+        myTamagotchi.age = i
+        console.log(myTamagotchi)
     }, 3000)
-   
     
 }
 // Allow user to give their pet a name when they click button
@@ -46,13 +47,56 @@ const giveName = () => {
     console.log(myTamagotchi)
     
     // Start the aging
-    aging();
+    aging(myTamagotchi);
+
+    // Start incrementing hunger, sleepiness, and boredome metrics
+    gettingHungry(myTamagotchi);
+    gettingSleepy(myTamagotchi);
+    gettingBored(myTamagotchi);
     // Return the Tamagotchi object
     return myTamagotchi
 }
 
+// STATS - functions to increase hunger, sleepiness, and boredom metrics
+const gettingHungry = (myTamagotchi) => {
+    let hungerLevel = 1
+    // Increase hunger every 10 seconds
+    setInterval(function() {
+        let hunger = document.querySelector('.hunger')
+        hunger.innerHTML = `Hunger: ${hungerLevel}`
+        // Update hunger property in Tamagotchi object
+        myTamagotchi.hunger = hungerLevel
+        hungerLevel++
+    }, 10000)
+}
+
+const gettingSleepy =(myTamagotchi) => {
+    let sleepinessLevel = 1
+    // Increase sleepiness every 6 seconds
+    setInterval(function () {
+        let sleepiness = document.querySelector('.sleepiness')
+        sleepiness.innerHTML = `Sleepiness: ${sleepinessLevel}`
+        // Update sleepiness property in Tamagotchi object
+        myTamagotchi.sleepiness = sleepinessLevel
+        sleepinessLevel++
+    }, 6000)
+}
+
+const gettingBored =(myTamagotchi) => {
+    let boredomLevel = 1
+    // Increase boredom every 2 seconds (gets bored fast )
+    setInterval(function () {
+        let boredom = document.querySelector('.boredom')
+        boredom.innerHTML = `Boredom: ${boredomLevel}`
+        // Update boredom property in Tamagotchi object
+        myTamagotchi.boredom = boredomLevel
+        boredomLevel++
+    }, 2000)
+}
+
 // INTERACTIONS 
 const feed = () => {
+    
     console.log('feed!')
 }
 const lights = () => {
