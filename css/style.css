@@ -27,6 +27,7 @@ body {
     background-size: cover;
     backdrop-filter: brightness(150%);
     font-family: 'Share Tech Mono', monospace;
+    min-height: 100vh;
 }
 
 header {
@@ -43,11 +44,9 @@ header h1 {
     filter: drop-shadow(-2px 2px 2px #fff0c9);
 }
 .main {
-    margin-top: 3rem;
     display: flex;
     justify-content: center;
-    align-items: center;
-    /* min-height: 100vh; */
+    align-items: flex-start;
     width: 100%;
 }
 #giveNameDiv {
@@ -58,40 +57,49 @@ header h1 {
 }
 .main .playDiv {
     display: flex; 
+    position: relative;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
     color: rgb(0, 0, 0);
     font-size: 1.5rem;
     width: 50%; 
-    height: 40vh;
+    height: auto;
     background-color: rgb(156, 176, 161);
     border: solid 3px white;
     border-radius: 30px;
-    padding: 1.5rem;
-    margin: 2rem;
+    padding: 5rem;
+    margin: 2rem 2rem 6rem 2rem;
     text-align: center;
+}
+#name {
+    margin-bottom: 1.5rem;
 }
 .playDiv p {
     font-size: 1.1rem;
+    margin: 10px 0 10px 0;
 }
 .playDiv .pet {
-    margin-top: 10px;
+    margin-top: 70px;
     width: 20%;
+}
+#giveNameDiv {
+    color: black;
+    margin-bottom: 1rem;
 }
 /* Pet animation on homepage */
 .main .playDiv .petHome {
     width: 25%;
-    margin-top: 25px;
+    margin-top: 70px;
     animation: MoveUpDown 1s linear infinite;
 }
 
 @keyframes MoveUpDown {
     0% {
-      transform: translateY(0%);
+        transform: translateY(0%);
     }
     50% {
-        transform: translateY(-8%);
+        transform: translateY(-15%);
     }
     100% {
         transform: translateY(0%);
@@ -103,8 +111,27 @@ header h1 {
     text-align: center;
     margin-bottom: 1.2rem;
 }
+.gameStarted .playDiv .instructions p {
+    color: black;
+}
+.petJump {
+    animation: JumpUp 2s linear infinite;
+}
+
+@keyframes JumpUp {
+    0% {
+        transform: translateY(0%);
+    }
+    50% {
+        transform: translateY(-50%);
+    }
+    100% {
+        transform: translateY(0%)
+    }
+}
 /* Pet animation on game page */
 .main .playDiv .pet {
+    
     margin-top: 25px;
     animation: back-and-forth 5s linear infinite;
 }
@@ -122,12 +149,12 @@ header h1 {
       transform: translateX(-150%) rotateY(180deg);
     }
 }
-.gameStarted {
-    margin: 0;
-}
+
+
+
 .gameStarted .playDiv {
-    height: auto;
-    /* flex-direction: column; */
+    height: auto; 
+    margin-bottom: 1rem;
 }
 .tamagotchiDiv {
     /* background-color: burlywood; */
@@ -157,12 +184,15 @@ button {
 
     border-radius: 5px;
     margin-top: 10px;
-    transition: background-color 0.3s ease-in-out;
+    transition: background-color 0.2s ease-in-out;
 }
 button:hover {
     background-color: #576e56;
     color: white;
     cursor: pointer;
+}
+button:active {
+    background-color: #333e33;
 }
 .gameStarted .playDiv .all {
     width: 100%;

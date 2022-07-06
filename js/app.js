@@ -117,6 +117,12 @@ const play = () => {
         myTamagotchi.boredom--
     }
     boredom.innerHTML = `Boredom: ${myTamagotchi.boredom}`
+
+    // Make pet jump every time play button is clicked
+    let pet = document.querySelector('.pet')
+    pet.classList.toggle('petJump')
+    console.log(pet)
+    
 }
 // ---------------------------------------------------------------
 // EVENT LISTENERS
