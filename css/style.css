@@ -10,7 +10,9 @@
 *::after {
     box-sizing: border-box;
 }
-
+html {
+    cursor: url('../cursor.png'), auto;
+}
 body {
     position: relative;
     flex-direction: column;
@@ -63,7 +65,8 @@ header h1 {
 .playDiv {
     display: flex; 
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
+    align-items: center;
     color: rgb(0, 0, 0);
     font-size: 1.5rem;
     width: 50%; 
@@ -75,6 +78,7 @@ header h1 {
     margin: 2rem;
 }
 .playDiv .pet {
+    margin-top: 10px;
     width: 20%;
 }
 
@@ -84,12 +88,14 @@ header h1 {
     border: none;
     padding: 10px;
     background-color: #ffffff;
-    width: 25%;
-    border-radius: 5px;;
+
+    border-radius: 5px;
+    margin-top: 10px;
     transition: background-color 0.3s ease-in-out;
 }
 .playDiv button:hover {
-    background-color: #ffffab;
+    background-color: #576e56;
+    color: white;
     cursor: pointer;
 }
 footer {
