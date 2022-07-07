@@ -118,13 +118,15 @@ const checkIfDead = () => {
 
     let myInterval = setInterval(function() {
         if(myTamagotchi.hunger === 10 || myTamagotchi.sleepiness === 10 || myTamagotchi.boredom === 10) {
+            alert(`Sorry, ${myTamagotchi.name} has died.`)
             clearInterval(myInterval)
             // Stop animation and insert gravestone
             let pet = document.querySelector('.pet')
             pet.remove()
-
             let all = document.querySelector('.all')
             all.remove()
+            let titles = document.querySelector('#giveNameDiv')
+            titles.remove()
             let rip = document.createElement('img')
             rip.setAttribute('src','rip.png')
             rip.setAttribute('class','rip')
@@ -139,6 +141,7 @@ const giveName = () => {
     let name = prompt('What would you like to name your new Tamagotchi?')
     console.log(name)
     let giveNameButton = document.querySelector('#name')
+
     // Remove button after user has given name
     giveNameButton.remove()
 
@@ -147,7 +150,7 @@ const giveName = () => {
     greeting.innerHTML = `Interact with ${name} using the buttons below. Keep ${name} ALIVE!`
 
     let instructions = document.createElement('p')
-    instructions.innerHTML = `Interact with ${name} by clicking on the buttons below. Make sure ${name}'s hunger, sleepiness, and boredom scores stay below 10. If any of these stats hit 10, ${name} will die.`
+    instructions.innerHTML = `Make sure ${name}'s hunger, sleepiness, and boredom levels stay below 10. If any of these stats hit 10, ${name} will die.`
     // Append this element to the dom
     let giveNameDiv = document.querySelector('#giveNameDiv')
     giveNameDiv.appendChild(greeting)
