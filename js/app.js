@@ -118,8 +118,18 @@ const checkIfDead = () => {
 
     let myInterval = setInterval(function() {
         if(myTamagotchi.hunger === 10 || myTamagotchi.sleepiness === 10 || myTamagotchi.boredom === 10) {
-            alert('you died')
             clearInterval(myInterval)
+            // Stop animation and insert gravestone
+            let pet = document.querySelector('.pet')
+            pet.remove()
+
+            let all = document.querySelector('.all')
+            all.remove()
+            let rip = document.createElement('img')
+            rip.setAttribute('src','rip.png')
+            rip.setAttribute('class','rip')
+            let petContainer = document.querySelector('.petContainer')
+            petContainer.appendChild(rip)
         }
     })
 }
