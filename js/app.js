@@ -9,6 +9,7 @@ class Tamagotchi {
 }
 
 let myTamagotchi;
+
 // Make function age pet
 const aging = () => {
     let i = 1
@@ -51,37 +52,6 @@ const aging = () => {
     }, 1000)
     
 }
-// Allow user to give their pet a name when they click button
-// Store in a variable called 'name'
-
-const giveName = () => {
-    let name = prompt('What would you like to name your new Tamagotchi?')
-    console.log(name)
-    let giveNameButton = document.querySelector('#name')
-    // Remove button after user has given name
-    giveNameButton.remove()
-
-    // Create new element called 'greeting' to greet the user
-    let greeting = document.createElement('h2')
-    greeting.innerHTML = `Interact with ${name} using the buttons below. Keep ${name} ALIVE!`
-
-    let instructions = document.createElement('p')
-    instructions.innerHTML = `Interact with ${name} by clicking on the buttons below. Make sure ${name}'s hunger, sleepiness, and boredom scores stay below 10. If any of these stats hit 10, ${name} will die.`
-    // Append this element to the dom
-    let giveNameDiv = document.querySelector('#giveNameDiv')
-    giveNameDiv.appendChild(greeting)
-    giveNameDiv.appendChild(instructions)
-    // Instantiate a new Tamagotchi pet from the Tamagotchi class
-    myTamagotchi = new Tamagotchi(name)
- 
-    // Start the aging
-    aging(myTamagotchi);
-
-    // Start incrementing hunger, sleepiness, and boredome metrics
-    gettingHungry(myTamagotchi);
-    gettingSleepy(myTamagotchi);
-    gettingBored(myTamagotchi);
-}
 
 // STATS - functions to increase hunger, sleepiness, and boredom metrics
 const gettingHungry = (myTamagotchi) => {
@@ -91,11 +61,6 @@ const gettingHungry = (myTamagotchi) => {
         hunger.innerHTML = `Hunger: ${myTamagotchi.hunger}`
         // Update hunger property in Tamagotchi object
         myTamagotchi.hunger++
-        
-        // Check if hunger is at 10 
-        if(myTamagotchi.hunger === 10) {
-            
-        }
     }, 3000)
 }
 
@@ -147,6 +112,50 @@ const play = () => {
     }
     boredom.innerHTML = `Boredom: ${myTamagotchi.boredom}`
 }
+
+// Check if hunger, sleepiness, or boredom has hit 10 yet 
+const checkIfDead = () => {
+
+    let myInterval = setInterval(function() {
+        if(myTamagotchi.hunger === 10 || myTamagotchi.sleepiness === 10 || myTamagotchi.boredom === 10) {
+            alert('you died')
+            clearInterval(myInterval)
+        }
+    })
+}
+// Allow user to give their pet a name when they click button
+// Store in a variable called 'name'
+const giveName = () => {
+    let name = prompt('What would you like to name your new Tamagotchi?')
+    console.log(name)
+    let giveNameButton = document.querySelector('#name')
+    // Remove button after user has given name
+    giveNameButton.remove()
+
+    // Create new element called 'greeting' to greet the user
+    let greeting = document.createElement('h2')
+    greeting.innerHTML = `Interact with ${name} using the buttons below. Keep ${name} ALIVE!`
+
+    let instructions = document.createElement('p')
+    instructions.innerHTML = `Interact with ${name} by clicking on the buttons below. Make sure ${name}'s hunger, sleepiness, and boredom scores stay below 10. If any of these stats hit 10, ${name} will die.`
+    // Append this element to the dom
+    let giveNameDiv = document.querySelector('#giveNameDiv')
+    giveNameDiv.appendChild(greeting)
+    giveNameDiv.appendChild(instructions)
+    // Instantiate a new Tamagotchi pet from the Tamagotchi class
+    myTamagotchi = new Tamagotchi(name)
+ 
+    // Start the aging
+    aging(myTamagotchi);
+
+    // Start incrementing hunger, sleepiness, and boredome metrics
+    gettingHungry(myTamagotchi);
+    gettingSleepy(myTamagotchi);
+    gettingBored(myTamagotchi);
+    checkIfDead();
+}
+
+
 
 // ---------------------------------------------------------------
 // EVENT LISTENERS
