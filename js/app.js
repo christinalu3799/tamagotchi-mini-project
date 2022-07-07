@@ -8,8 +8,9 @@ class Tamagotchi {
     }
 }
 
+let myTamagotchi;
 // Make function age pet
-const aging = (myTamagotchi) => {
+const aging = () => {
     let i = 1
     // Make pet age 1 month every 3 seconds
     setInterval(function() {
@@ -21,15 +22,39 @@ const aging = (myTamagotchi) => {
         }
         // Increment age 
         i++
-
         // Update age property on myTamagotchi object
         myTamagotchi.age = i
-    }, 3000)
+        
+        if(myTamagotchi.age === 12) {
+            let babyPet = document.querySelector('.pet')
+            babyPet.remove()
+            let firstEvolution = document.createElement('img')
+            firstEvolution.setAttribute('src','tamagotchi2.png')
+            firstEvolution.setAttribute('class','pet')
+            let petContainer = document.querySelector('.petContainer')
+            petContainer.append(firstEvolution)
+            alert(`Happy first birthday to ${myTamagotchi.name}!`)
+        } 
+
+        if(myTamagotchi.age === 24) {
+            let firstEvolution = document.querySelector('.pet')
+            firstEvolution.remove()
+            let finalEvolution = document.createElement('img')
+            finalEvolution.setAttribute('src','tamagotchi3.png')
+            finalEvolution.setAttribute('class','pet')
+            let petContainer = document.querySelector('.petContainer')
+            petContainer.append(finalEvolution)
+            alert(`${myTamagotchi.name} has completed the final evolution.`)
+
+        }
+
+
+    }, 1000)
     
 }
 // Allow user to give their pet a name when they click button
 // Store in a variable called 'name'
-let myTamagotchi;
+
 const giveName = () => {
     let name = prompt('What would you like to name your new Tamagotchi?')
     console.log(name)
@@ -38,13 +63,15 @@ const giveName = () => {
     giveNameButton.remove()
 
     // Create new element called 'greeting' to greet the user
-    let greeting = document.createElement('h3')
+    let greeting = document.createElement('h2')
     greeting.innerHTML = `Interact with ${name} using the buttons below. Keep ${name} ALIVE!`
 
+    let instructions = document.createElement('p')
+    instructions.innerHTML = `Interact with ${name} by clicking on the buttons below. Make sure ${name}'s hunger, sleepiness, and boredom scores stay below 10. If any of these stats hit 10, ${name} will die.`
     // Append this element to the dom
     let giveNameDiv = document.querySelector('#giveNameDiv')
     giveNameDiv.appendChild(greeting)
-
+    giveNameDiv.appendChild(instructions)
     // Instantiate a new Tamagotchi pet from the Tamagotchi class
     myTamagotchi = new Tamagotchi(name)
  
@@ -88,7 +115,7 @@ const gettingBored =(myTamagotchi) => {
         myTamagotchi.boredom++
     }, 4000)
 }
-// INTERACTIONS 
+// INTERACTIONS WITH BUTTONS
 const feed = () => {
     // Decrement hunger by 1 everytime user feeds it
     if(myTamagotchi.hunger > 0) {
@@ -96,7 +123,6 @@ const feed = () => {
     }
     let hunger = document.querySelector('.hunger')
     hunger.innerHTML = `Hunger: ${myTamagotchi.hunger}`
-    console.log(myTamagotchi.hunger, 'just fed')
 }
 const lights = () => {
     // Make background darker to simulate night time
@@ -106,7 +132,6 @@ const lights = () => {
         myTamagotchi.sleepiness--
     }
     sleepiness.innerHTML = `Sleepiness: ${myTamagotchi.sleepiness}`
-
     // Darken background
     let body = document.querySelector('body')
     body.classList.toggle('darken')
@@ -117,13 +142,13 @@ const play = () => {
         myTamagotchi.boredom--
     }
     boredom.innerHTML = `Boredom: ${myTamagotchi.boredom}`
-
-    // Make pet jump every time play button is clicked
-    let pet = document.querySelector('.pet')
-    pet.classList.toggle('petJump')
-    console.log(pet)
-    
 }
+
+// LET TAMAGOTCHI EVOLVE
+// const evolve = () => {
+//     if()
+// }
+
 // ---------------------------------------------------------------
 // EVENT LISTENERS
 // Listen for button click for when user wants to name their pet

@@ -55,6 +55,9 @@ header h1 {
     color: white; 
     font-size: 1.5rem;
 }
+#giveNameDiv p {
+    margin-top: 1.5rem;
+}
 .main .playDiv {
     display: flex; 
     position: relative;
@@ -63,26 +66,22 @@ header h1 {
     align-items: center;
     color: rgb(0, 0, 0);
     font-size: 1.5rem;
-    width: 50%; 
+    width: 70%; 
     height: auto;
     background-color: rgb(156, 176, 161);
     border: solid 3px white;
     border-radius: 30px;
-    padding: 5rem;
+    padding: 2rem;
     margin: 2rem 2rem 6rem 2rem;
     text-align: center;
+}
+.main .playDiv .greeting {
+    margin: 1rem 0 1rem 0;
 }
 #name {
     margin-bottom: 1.5rem;
 }
-.playDiv p {
-    font-size: 1.1rem;
-    margin: 10px 0 10px 0;
-}
-.playDiv .pet {
-    margin-top: 70px;
-    width: 20%;
-}
+
 #giveNameDiv {
     color: black;
     margin-bottom: 1rem;
@@ -105,7 +104,12 @@ header h1 {
         transform: translateY(0%);
     }
 }
+/* GAME PAGE */
 
+.gameStarted .playDiv {
+    height: auto; 
+    margin-bottom: 1rem;
+}
 .gameStarted .playDiv .instructions {
     font-size: 1.2rem;
     text-align: center;
@@ -114,48 +118,31 @@ header h1 {
 .gameStarted .playDiv .instructions p {
     color: black;
 }
-.petJump {
-    animation: JumpUp 2s linear infinite;
+/* Pet animation on game page */
+.petContainer {
+    width: 100%;
 }
 
-@keyframes JumpUp {
-    0% {
-        transform: translateY(0%);
-    }
-    50% {
-        transform: translateY(-50%);
-    }
-    100% {
-        transform: translateY(0%)
-    }
-}
-/* Pet animation on game page */
-.main .playDiv .pet {
-    
-    margin-top: 25px;
+.gameStarted .playDiv .petContainer .pet {
+    margin-top: 45px;
     animation: back-and-forth 5s linear infinite;
+    width: 15%;
 }
 @keyframes back-and-forth{
     0% {
-      transform: translateX(-150%) rotateY(0deg);
+      transform: translateX(-200%) rotateY(0deg);
     }
     49% {
-      transform: translateX(150%) rotateY(0deg);
+      transform: translateX(200%) rotateY(0deg);
     }
     51% {
-      transform: translateX(150%) rotateY(180deg);
+      transform: translateX(200%) rotateY(180deg);
     }
     100% {
-      transform: translateX(-150%) rotateY(180deg);
+      transform: translateX(-200%) rotateY(180deg);
     }
 }
 
-
-
-.gameStarted .playDiv {
-    height: auto; 
-    margin-bottom: 1rem;
-}
 .tamagotchiDiv {
     /* background-color: burlywood; */
     display: flex; 
@@ -174,6 +161,9 @@ header h1 {
     filter: drop-shadow(-2px 2px 2px #ffffff);
 }
 
+#goHomeBtn {
+    margin-top: 2rem;
+}
 
 button {
     font-family: 'Share Tech Mono', monospace;
@@ -202,27 +192,31 @@ button:active {
 .gameStarted .playDiv .interact {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     width: 50%;
     padding: 10px;
     text-align: left;
 }
 .gameStarted .playDiv .stat p {
     font-size: 1.5rem;
+   
 }
 .gameStarted .playDiv .stat {
     width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    border-radius: 5px;
+    text-align: center; 
+    margin: 10px 0 10px 0;
 }
 .gameStarted .playDiv .interaction {
     width: 100%;
     border: solid 2px black;
+    width: 50%;
 }
 .gameStarted .playDiv .interaction:hover {
     filter: drop-shadow(-2px 2px 2px #ffffff);
 }
+
+
+
 a {
     color: white; 
     text-decoration: none;
