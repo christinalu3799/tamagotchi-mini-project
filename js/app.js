@@ -25,6 +25,8 @@ const aging = () => {
         // Update age property on myTamagotchi object
         myTamagotchi.age = i
         
+
+        // Check age to evolve tamagotchi
         if(myTamagotchi.age === 12) {
             let babyPet = document.querySelector('.pet')
             babyPet.remove()
@@ -45,10 +47,7 @@ const aging = () => {
             let petContainer = document.querySelector('.petContainer')
             petContainer.append(finalEvolution)
             alert(`${myTamagotchi.name} has completed the final evolution.`)
-
         }
-
-
     }, 1000)
     
 }
@@ -93,6 +92,10 @@ const gettingHungry = (myTamagotchi) => {
         // Update hunger property in Tamagotchi object
         myTamagotchi.hunger++
         
+        // Check if hunger is at 10 
+        if(myTamagotchi.hunger === 10) {
+            
+        }
     }, 3000)
 }
 
@@ -115,6 +118,7 @@ const gettingBored =(myTamagotchi) => {
         myTamagotchi.boredom++
     }, 4000)
 }
+
 // INTERACTIONS WITH BUTTONS
 const feed = () => {
     // Decrement hunger by 1 everytime user feeds it
@@ -143,11 +147,6 @@ const play = () => {
     }
     boredom.innerHTML = `Boredom: ${myTamagotchi.boredom}`
 }
-
-// LET TAMAGOTCHI EVOLVE
-// const evolve = () => {
-//     if()
-// }
 
 // ---------------------------------------------------------------
 // EVENT LISTENERS
