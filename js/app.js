@@ -9,8 +9,7 @@ class Tamagotchi {
 }
 
 let myTamagotchi;
-
-// Make function age pet
+// Make function to age pet
 const aging = () => {
     let i = 1
     // Make pet age 1 month every 3 seconds
@@ -26,8 +25,8 @@ const aging = () => {
         // Update age property on myTamagotchi object
         myTamagotchi.age = i
         
-
         // Check age to evolve tamagotchi
+        // Once age === 12, make tamagotchi 1 year old
         if(myTamagotchi.age === 12) {
             let babyPet = document.querySelector('.pet')
             babyPet.remove()
@@ -39,6 +38,7 @@ const aging = () => {
             alert(`Happy first birthday to ${myTamagotchi.name}!`)
         } 
 
+        // Once age == 24, make tamagotchi turn 2 years old (final evolution)
         if(myTamagotchi.age === 24) {
             let firstEvolution = document.querySelector('.pet')
             firstEvolution.remove()
@@ -50,7 +50,6 @@ const aging = () => {
             alert(`${myTamagotchi.name} has completed the final evolution.`)
         }
     }, 1000)
-    
 }
 
 // STATS - functions to increase hunger, sleepiness, and boredom metrics
@@ -115,7 +114,6 @@ const play = () => {
 
 // Check if hunger, sleepiness, or boredom has hit 10 yet 
 const checkIfDead = () => {
-
     let myInterval = setInterval(function() {
         if(myTamagotchi.hunger === 10 || myTamagotchi.sleepiness === 10 || myTamagotchi.boredom === 10) {
             alert(`Sorry, ${myTamagotchi.name} has died.`)
@@ -135,6 +133,7 @@ const checkIfDead = () => {
         }
     })
 }
+
 // Allow user to give their pet a name when they click button
 // Store in a variable called 'name'
 const giveName = () => {
@@ -167,8 +166,6 @@ const giveName = () => {
     gettingBored(myTamagotchi);
     checkIfDead();
 }
-
-
 
 // ---------------------------------------------------------------
 // EVENT LISTENERS
